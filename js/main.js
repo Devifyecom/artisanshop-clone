@@ -119,18 +119,18 @@ function initCasinoFilter() {
 
       brandCards.forEach(card => {
         if (filter === 'all') {
-          card.style.display = 'grid';
+          card.style.display = '';
         } else if (filter === 'high-bonus') {
           const value = card.querySelector('.dynamic-field-box .value').textContent;
           if (value.includes('3.500') || value.includes('3.000') || value.includes('5 500')) {
-            card.style.display = 'grid';
+            card.style.display = '';
           } else {
             card.style.display = 'none';
           }
         } else if (filter === 'fast-pay') {
           const text = card.textContent;
           if (text.includes('Needforspin') || text.includes('Spinlander')) {
-            card.style.display = 'grid';
+            card.style.display = '';
           } else {
             card.style.display = 'none';
           }
@@ -144,21 +144,20 @@ function initCasinoFilter() {
 function initLiveSearch() {
   const searchInput = document.getElementById('search-box');
   const brandCards = document.querySelectorAll('.brand-card');
-  const textSections = document.querySelectorAll('.grw-text-box p, table tbody tr');
 
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
 
       if (term === '') {
-        brandCards.forEach(card => card.style.display = 'grid');
+        brandCards.forEach(card => card.style.display = '');
         return;
       }
 
       brandCards.forEach(card => {
         const text = card.textContent.toLowerCase();
         if (text.includes(term)) {
-          card.style.display = 'grid';
+          card.style.display = '';
         } else {
           card.style.display = 'none';
         }
